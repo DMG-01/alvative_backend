@@ -53,10 +53,10 @@ app.get("/users", async (req: Request, res: Response) => {
 
 // Create a new user
 app.post("/users", async (req: Request, res: Response) => {
-  const { name, email } = req.body;
+  const {email } = req.body;
   try {
     const user = await prisma.user.create({
-      data : { name, email }
+      data : { name:"anon", email }
     });
     res.json(user);
   } catch (error) {
