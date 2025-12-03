@@ -14,7 +14,7 @@ const app = express();
 
 // Middleware to parse JSON
 app.use(cors({
-  origin: "http://localhost:5173", // your frontend URL
+  origin: ["http://localhost:5173","alvative-frontend-p43o1iqnb-dvynes-projects.vercel.app"],  // your frontend URL
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
 }));
