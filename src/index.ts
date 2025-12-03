@@ -13,11 +13,21 @@ const prisma = new PrismaClient();
 const app = express();
 
 // Middleware to parse JSON
-app.use(cors({
-  origin: ["http://localhost:5173","alvative-frontend-p43o1iqnb-dvynes-projects.vercel.app"],  // your frontend URL
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true,
-}));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://alvative-frontend-p43o1iqnb-dvynes-projects.vercel.app",
+      "https://alvative-frontend.vercel.app" // add your final domain too
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+
+// IMPORTANT: allow preflight
+app.options("*", cors());
+
 app.use(express.json());
 
 // ----------------------
